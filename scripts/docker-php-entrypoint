@@ -10,6 +10,8 @@ if [ "${1#-}" != "$1" ]; then
 fi
 
 mkdir -p /run/nginx
+mkdir -p /run/nginx/sock
+rm -vf /run/nginx/sock/http
 
 nginx
 crontab /etc/partkeepr.cron
