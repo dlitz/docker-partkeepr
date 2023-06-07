@@ -23,7 +23,7 @@ services:
     image: maksimstojkovic/partkeepr:21.04
     container_name: partkeepr
     ports:
-      - "8080:80"
+      - "127.0.0.1:8080:80"
     volumes:
       - ./partkeepr/config:/partkeepr/app/config
       - ./partkeepr/data:/partkeepr/data
