@@ -20,7 +20,8 @@ services:
     restart: unless-stopped
 
   web:
-    image: maksimstojkovic/partkeepr:21.04
+    build: .
+    image: local.partkeepr
     container_name: partkeepr
     tmpfs:
       - /run
