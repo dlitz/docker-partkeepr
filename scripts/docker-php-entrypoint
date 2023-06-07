@@ -9,6 +9,8 @@ if [ "${1#-}" != "$1" ]; then
         set -- php-fpm "$@"
 fi
 
+mkdir -p /run/nginx
+
 nginx
 crontab /etc/partkeepr.cron
 mkdir -p "$APP_HOME/app/logs"

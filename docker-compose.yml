@@ -22,6 +22,8 @@ services:
   web:
     image: maksimstojkovic/partkeepr:21.04
     container_name: partkeepr
+    tmpfs:
+      - /run
     ports:
       - "127.0.0.1:8080:80"
     volumes:
