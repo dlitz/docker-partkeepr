@@ -21,7 +21,7 @@ services:
 
   web:
     build: .
-    image: local.partkeepr
+    image: dlitz2/partkeepr:1.4.0-20230607
     container_name: partkeepr
     tmpfs:
       - /run
