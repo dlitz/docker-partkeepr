@@ -12,6 +12,9 @@ services:
       - MYSQL_DATABASE=partkeepr
       - MYSQL_USER=partkeepr
       - MYSQL_PASSWORD=partkeepr
+    command:
+      - "--character-set-server=utf8mb4"
+      - "--collation-server=utf8mb4_unicode_ci"
     volumes:
       - ./partkeepr/mysql:/var/lib/mysql
     restart: unless-stopped
