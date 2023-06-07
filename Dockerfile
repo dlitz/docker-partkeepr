@@ -60,6 +60,12 @@ RUN \
         -L https://downloads.partkeepr.org/partkeepr-${PARTKEEPR_VERSION}.tbz2 && \
     chown -R www-data:www-data $APP_HOME /tmp/partkeepr.tbz2
 
+RUN apk add --update --no-cache --virtual .build-dependencies $PHPIZE_DEPS \
+        && pecl install apcu apcu_bc \
+        && docker-php-ext-enable --ini-name 0-apc.ini apcu apc \
+        && pecl clear-cache \
+        && apk del .build-dependencies
+
 COPY config/nginx.conf /etc/nginx/conf.d/default.conf
 COPY config/crontab /etc/partkeepr.cron
 COPY php /usr/local/etc/php
